@@ -5,3 +5,18 @@ async function downloadLaunchData() {
 }
 
 await downloadLaunchData();
+
+async function addUser() {
+    const response = await fetch("https://reqres.in/api/users", {
+        method: "POST",
+        body: JSON.stringify({
+            name: "Elon Musk",
+            job: "billionaire"
+        }),
+        headers: {"Content-Type": "application/json; charset=UTF-8"}
+    });
+    const userInfos = await response.json();
+    console.log(userInfos);
+}
+
+await addUser();
